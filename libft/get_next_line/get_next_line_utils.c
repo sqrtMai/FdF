@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbouarab <bbouarab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mai <mai@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 14:58:23 by bbouarab          #+#    #+#             */
-/*   Updated: 2025/12/09 11:22:32 by bbouarab         ###   ########.fr       */
+/*   Updated: 2025/12/13 11:33:12 by mai              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strdup_gnl(char *src)
 	char	*copy;
 
 	i = 0;
-	copy = malloc(ft_strlen_new(src, 0) + 1);
+	copy = malloc(ft_strlen_gnl(src, 0) + 1);
 	if (!copy)
 		return (NULL);
 	while (src[i])
@@ -37,7 +37,7 @@ char	*ft_strdup_newline(char *src, char **stash, int type)
 	char	*temp;
 
 	i = 0;
-	copy = malloc(ft_strlen_new(src, type) + 1);
+	copy = malloc(ft_strlen_gnl(src, type) + 1);
 	if (!copy)
 		return (NULL);
 	while (src[i] && src[i] != '\n')
@@ -54,7 +54,7 @@ char	*ft_strdup_newline(char *src, char **stash, int type)
 	return (copy);
 }
 
-size_t	ft_strlen_new(char *c, int type)
+size_t	ft_strlen_gnl(char *c, int type)
 {
 	size_t	i;
 
@@ -82,8 +82,8 @@ char	*ft_strjoin_gnl(char *s1, char *s2)
 	size_t	j;
 	char	*s3;
 
-	len1 = ft_strlen_new(s1, 0);
-	len2 = ft_strlen_new(s2, 0);
+	len1 = ft_strlen_gnl(s1, 0);
+	len2 = ft_strlen_gnl(s2, 0);
 	i = 0;
 	j = 0;
 	s3 = malloc(len1 + len2 + 1);

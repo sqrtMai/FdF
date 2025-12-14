@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbouarab <bbouarab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mai <mai@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 14:58:23 by bbouarab          #+#    #+#             */
-/*   Updated: 2025/12/09 11:22:39 by bbouarab         ###   ########.fr       */
+/*   Updated: 2025/12/13 11:41:20 by mai              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,14 @@ char	*get_next_char(int fd)
 	return (buf);
 }
 
-char	*fill_line(int fd, char **stash)
+char	*fill_line(int fd, char **stash, int reset)
 {
 	char		*new_line;
 	char		*temp;
 	static int	tour = 0;
 
+	if (reset)
+		tour = 0;
 	if (tour == 0)
 	{
 		*stash = get_next_char(fd);
@@ -73,17 +75,19 @@ char	*fill_line(int fd, char **stash)
 	}
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, int reset)
 {
 	static char	*stash = NULL;
 	char		*line;
 	char		*new_line;
 
+	if (reset)
+		stash = NULL;
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	line = fill_line(fd, &stash);
+	line = fill_line(fd, &stash, reset);
 	while (line && !check_newline(line))
-		line = fill_line(fd, &stash);
+		line = fill_line(fd, &stash, reset);
 	if (!line)
 	{
 		if (!stash || !stash[0])

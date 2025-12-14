@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bbouarab <bbouarab@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mai <mai@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 12:17:57 by bbouarab          #+#    #+#             */
-/*   Updated: 2025/12/12 15:17:03 by bbouarab         ###   ########.fr       */
+/*   Updated: 2025/12/14 18:59:41 by mai              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <string.h>
 # include "../../libft.h"
 
-char	*to_hexa(unsigned long long base10);
 char	*to_hexa_lowercase(unsigned long long base10);
 char	*ft_strnstr(const char *s1, const char *s2, size_t len);
 

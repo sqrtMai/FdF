@@ -6,11 +6,11 @@
 /*   By: mai <mai@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 12:18:08 by bbouarab          #+#    #+#             */
-/*   Updated: 2025/12/14 19:09:17 by mai              ###   ########.fr       */
+/*   Updated: 2025/12/14 19:04:35 by mai              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
+#include "libft.h"
 
 size_t	ft_get_size(unsigned long long n)
 {

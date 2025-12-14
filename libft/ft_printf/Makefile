@@ -10,7 +10,6 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	cp ../libft.a $(NAME)
 	ar rc $(NAME) $(OBJ)
 
 clean:

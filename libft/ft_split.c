@@ -12,12 +12,20 @@
 
 #include "libft.h"
 
-static int	is_sep(char c, char sep)
+static int	is_sep(char c, char *sep)
 {
-	return (c == sep);
+	int i = 0;
+
+	while (sep[i])
+	{
+		if (sep[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
-static int	count_words(char const *s, char c)
+static int	count_words(char const *s, char *c)
 {
 	size_t	word_count;
 	int		i;
@@ -36,7 +44,7 @@ static int	count_words(char const *s, char c)
 	return (word_count);
 }
 
-static char	*copy(const char *s, char c)
+static char	*copy(const char *s, char *c)
 {
 	size_t	letter;
 	int		i;
@@ -58,7 +66,7 @@ static char	*copy(const char *s, char c)
 	return (copy);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char *c)
 {
 	size_t	word_count;
 	size_t	actual_word;

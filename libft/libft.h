@@ -22,11 +22,14 @@
 
 typedef struct	s_list {
 	void	*img;
+	void	*mlx;
+	void	*window;
 	char	*addr;
 	void 	*content;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+	int		color;
 	struct s_list *next;
 }				t_list;
 
@@ -41,10 +44,11 @@ char	*ft_strdup(const char *s1);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
 char	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_strtrim(const char *s1, const char *set);
-char	**ft_split(const char *s, char c);
+char	**ft_split(const char *s, char *c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
-char	*get_next_line(int fd);
+char	*get_next_line(int fd, int reset);
+char	*to_hexa(unsigned long long base10);
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	*ft_memset(void *b, int c, size_t len);
@@ -72,11 +76,13 @@ int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
-int		ft_atoi(const char *str);
+int		ft_atoi(char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_lstsize(t_list *lst);
 int		ft_printf(const char *conversion, ...);
+int		ft_findstr(char *str, char *searched);
+int		ft_atoi_base(const char *str, char *base);
 
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);

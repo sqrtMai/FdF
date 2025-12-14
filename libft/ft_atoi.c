@@ -20,7 +20,7 @@ static int	is_space(char c)
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(char *str)
 {
 	int		i;
 	int		result;
