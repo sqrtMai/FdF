@@ -49,6 +49,7 @@ typedef struct s_fdf
 int close_window(t_fdf *fdf);
 int	key_hook(int keycode, t_fdf *fdf);
 
+void draw_map(t_fdf *fdf);
 void init_datas(t_fdf *fdf, char *map);
 int check_valid_size(t_fdf *fdf, char *map);
 int get_map_height(char *map);

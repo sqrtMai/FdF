@@ -4,7 +4,7 @@ int init_zoom(t_fdf *fdf)
 {
 	if (fdf->map->map_len < 20)
 		return 40;
-	return 1;
+	return 3;
 }
 void init_window(t_fdf *fdf)
 {
@@ -18,7 +18,7 @@ void init_window(t_fdf *fdf)
 	fdf->zoom = init_zoom(fdf);
 	mlx_hook(fdf->window, 2, 1L << 0, key_hook, fdf);
 	mlx_hook(fdf->window, 17, 0, close_window, fdf);
-
+	draw_map(fdf);
 	mlx_put_image_to_window(fdf->mlx, fdf->window, fdf->img.img, 0, 0);
 	mlx_loop(fdf->mlx);
 }
@@ -79,5 +79,5 @@ void init_datas(t_fdf *fdf, char *map)
 	init_fdf_struct(fdf, map);
 	split = ft_split(fdf->map->map, " \n");
 	put_datas_to_point(fdf, split);
-	//init_window(fdf);
+	init_window(fdf);
 }
